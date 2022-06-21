@@ -1,0 +1,77 @@
+.product-container {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  background-color: #ebf5f0;
+  height: 100vh;
+  .title {
+    margin-top: 100px;
+    font-size: 1.75em;
+    font-weight: 400;
+    color: #263238;
+  }
+  .btn-created {
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    width: 1024px;
+    justify-content: flex-end;
+    .filter {
+      margin-right: 10px;
+    }
+    .keywordSearch {
+      width: 200px;
+      margin-right: 20px;
+    }
+    .created {
+      border-radius: 5px;
+      background: linear-gradient(257.4deg, #00b9f4, #0d7dfb);
+      border-color: transparent;
+      color: #fff;
+      padding: 5px;
+    }
+  }
+  .table-container {
+    width: 1024px;
+    table {
+      width: 100%;
+    }
+    .btn-container {
+      display: flex;
+      // width: 65px;
+      .read {
+        cursor: pointer;
+        margin-right: 10px;
+        border-radius: 5px;
+        background: linear-gradient(257.4deg, #00b9f4, #0d7dfb);
+        border-color: transparent;
+        color: #fff;
+        padding: 5px;
+        border: none;
+      }
+      .update {
+        cursor: pointer;
+        background-image: linear-gradient(90deg, orange, #ffbc40);
+        margin-right: 10px;
+        border-radius: 5px;
+        border-color: transparent;
+        color: #fff;
+        padding: 5px;
+        border: none;
+      }
+      .delete {
+        cursor: pointer;
+        background-image: linear-gradient(90deg, #e74c3c, #fd6e5e);
+        border-radius: 5px;
+        border-color: transparent;
+        color: #fff;
+        padding: 5px;
+        border: none;
+      }
+    }
+  }
+}
+::ng-deep ng-select {
+  width: 170px;
+}

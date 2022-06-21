@@ -1,0 +1,90 @@
+<div class="product-container">
+  <div class="title">Test mock data back-end</div>
+  <div class="btn-created">
+    <ng-select
+      class="filter"
+      [items]="arrCategory"
+      bindLabel="category"
+      bindValue="category"
+      autofocus
+      appendTo="body"
+      (change)="filterCategory($event)"
+      [virtualScroll]="true"
+      placeholder="Filter by Category"
+    >
+    </ng-select>
+    <input
+      type="text"
+      class="form-control keywordSearch"
+      placeholder="Search"
+      [(ngModel)]="keywordSearch"
+      (ngModelChange)="this.searchToLoadData.next($event)"
+      autocomplete="off"
+    />
+    <div class="created" (click)="openDialog('created', null)">Created</div>
+  </div>
+  <div class="table-container">
+    <table mat-table matSort [dataSource]="dataSource" class="table-product">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="id">id</th>
+        <td mat-cell *matCellDef="let element" [disabled]="true">
+          {{ element.id }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="name">Name</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="type">Type</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.type }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="category">
+          Category
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.category }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="price">Price</th>
+        <td mat-cell *matCellDef="let element">
+          <span>
+            {{ element.price }}
+          </span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="btn-container">
+            <div class="read" (click)="openDialog('read', element)">Read</div>
+            <div class="update" (click)="openDialog('update', element)">
+              Update
+            </div>
+            <div class="delete" (click)="openDialog('delete', element)">
+              Delete
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [length]="pageItemsLength"
+      [pageSize]="[pageSize]"
+      showFirstLastButtons
+      [pageSizeOptions]="[5, 10, 20, 50, 100]"
+    ></mat-paginator>
+  </div>
+</div>

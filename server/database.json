@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Hưng",
+      "type": "FE",
+      "category": "Development",
+      "price": "20000"
+    },
+    {
+      "id": 2,
+      "name": "Rabit",
+      "type": "Kame Rider",
+      "category": "Build",
+      "price": "3000"
+    }
+  ]
+}

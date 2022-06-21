@@ -1,0 +1,96 @@
+<div class="item-dialog" *ngIf="action != 'delete'; else elseTemplate">
+  <div class="header">
+    <h1 class="title">
+      {{ action }}
+    </h1>
+    <button class="btn btn-close" (click)="closeDialog()">&times;</button>
+  </div>
+  <div class="item-dialog-container list-item-scroll-bar">
+    <div class="form-container">
+      <form class="item-form" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input
+            disabled
+            type="text"
+            class="form-control"
+            name="name"
+            formControlName="id"
+            placeholder="ID"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            [disabled]="isDisabled"
+            type="text"
+            class="form-control"
+            name="address"
+            formControlName="name"
+            placeholder="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input
+            [disabled]="isDisabled"
+            type="text"
+            class="form-control"
+            name="type"
+            formControlName="type"
+            placeholder="type"
+          />
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input
+            [disabled]="isDisabled"
+            type="text"
+            class="form-control"
+            name="category"
+            formControlName="category"
+            placeholder="category"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Price">Price</label>
+          <input
+            [disabled]="isDisabled"
+            type="text"
+            class="form-control"
+            name="Price"
+            formControlName="price"
+            placeholder="Price"
+          />
+        </div>
+        <ng-container>
+          <div class="actions_container">
+            <button class="btn-submit" *ngIf="action != 'read'">
+              <span>{{ action }}</span>
+            </button>
+          </div>
+        </ng-container>
+        <!-- && !itemForm.valid -->
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #elseTemplate>
+  <p class="title">
+    Sure to delete <b>{{ dataItem.name }}</b> ?
+  </p>
+  <div mat-dialog-actions align="end">
+    <button
+      class="btn-delete"
+      mat-button
+      (click)="onSubmit()"
+      mat-flat-button
+      color="warn"
+    >
+      {{ action }}
+    </button>
+    <button class="btn-cancel" mat-button (click)="closeDialog()">
+      Cancel
+    </button>
+  </div>
+</ng-template>
